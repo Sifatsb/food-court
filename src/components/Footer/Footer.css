@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Estonia&family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+.footer{
+    background-color: rgba(219, 186, 76, 0.5);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.icons{
+    display: flex;
+    gap: 30px;
+}
