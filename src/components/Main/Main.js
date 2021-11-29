@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Main.css';
 
 
@@ -23,7 +24,7 @@ const Main = () => {
         <div className="main-container">
             <div className="elements">
                 <span className="food">{quote}</span>
-                <button className="button">Get Started</button>
+                <Link to='/signup'><button className="button">Get Started</button></Link>
                 {/* <button class="glow-on-hover" type="button">Get Started!</button> */}
 
             </div>
