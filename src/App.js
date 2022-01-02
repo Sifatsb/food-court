@@ -17,57 +17,17 @@ import Home from './components/Home/Home';
 import Offer from './components/Offer/Offer';
 import NotFound from './components/NotFound/NotFound';
 import SignUp from './components/SignUp/SignUp';
+import Login from './components/Login/Login';
+import { motion } from 'framer-motion';
+import Food from './components/Food/Food';
+import Foods from './components/Foods/Foods';
 
 function App() {
 
   return (
     <div>
       <Header />
-      {/* <Main />
-      <Footer /> */}
-
-
-      {/* <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/offer">Offer</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Switch>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route path="/offer">
-              <Offer />
-            </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router> */}
-
-
-
+  
       <Router>
         <Switch>
 
@@ -79,19 +39,33 @@ function App() {
           </Route>
 
           <Route path="/offer">
-            <Offer />
+          <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} >
+            <Food/>
+            </motion.div>
           </Route>
 
           <Route path="/profile">
-            <Profile />
+          <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} >
+            <Profile/>
+            </motion.div>
           </Route>
 
           <Route path="/contact">
-            <Contact />
+          <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} >
+            <Contact/>
+            </motion.div>
           </Route>
 
           <Route path="/signup">
+            <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} >
             <SignUp/>
+            </motion.div>
+          </Route>
+
+          <Route path="/login">
+          <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} >
+            <Login/>
+            </motion.div>
           </Route>
 
           {/* <Route exact path="/">
@@ -99,7 +73,9 @@ function App() {
           </Route> */}
 
           <Route path="*">
-            <NotFound />
+          <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} >
+            <NotFound/>
+            </motion.div>
           </Route>
 
         </Switch>

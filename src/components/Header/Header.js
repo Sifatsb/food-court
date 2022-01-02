@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css'
-import logo from '../../Images/logo1.png'
 import { IoFastFoodOutline } from 'react-icons/io5';
 
 const Header = () => {
@@ -17,6 +16,8 @@ const Header = () => {
                 <li><a href="/offer">Offer</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact">Sign Up</a></li>
+                <li><a href="/contact">Login</a></li>
                 </ul>
             </nav>
             

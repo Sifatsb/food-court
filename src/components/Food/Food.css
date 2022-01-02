@@ -1,0 +1,78 @@
+.elementsChild{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(128, 128, 128, 0.233);
+    border-radius: 10px;
+    align-items: center;
+}
+
+.elementsChild:hover{
+    /* box-shadow: 5px 10px red; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.elementsFather{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+}
+
+.elementsChild img{
+    width: 250px;
+    height: 250px;
+}
+
+.cartButton{
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 450;
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* margin-top: 10px; */
+    background-color: rgb(214, 73, 54);
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+/* .sideButton{
+    background-color: #FF8F45;
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+    align-items: center;
+    margin-top: 3px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+} */
+
+.inputField{
+    width: 40px;
+}
+
+.cartDiv{
+    display: flex;
+    gap: 20px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+}
+
+@media screen and (max-width: 650px) {
+    .elementsFather{
+        grid-template-columns: 12fr;
+    }
+  }
+
+
+@media screen and (max-width: 480px) {
+    .elementsFather{
+        grid-template-columns: 12fr;
+    }
+  }

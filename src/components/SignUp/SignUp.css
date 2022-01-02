@@ -15,12 +15,9 @@
 .form-level{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 500px;
     gap: 30px;
-}
-
-.form-level input{
-    padding: 10px 15px;
 }
 
 .login-link{
