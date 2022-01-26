@@ -2,10 +2,13 @@ import { TextField } from '@mui/material';
 import React, { useState } from 'react';
 import './SignUp.css';
 import firebase from './../../firebase';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,} from "firebase/auth";
 // import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+
+const googleProvider = new GoogleAuthProvider();
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -27,10 +30,28 @@ const SignUp = () => {
             })
     }
 
+    
+    const handleGoogleSignIn = () => {
+        const auth = getAuth();
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                // const credential = GoogleAuthProvider.credentialFromResult(result);
+                // const token = credential.accessToken;
+                // const user = result.user;
+                // console.log(user)
+                history.push("/profile");
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+    }
+
     return (
         <div className="main-div">
             <h1>Sign up for start choose your food.</h1>
-            <button className="button">Sign Up With Facebook</button>
+            <button onClick={handleGoogleSignIn} className="button">Sign Up With Google</button>
             <h4>------------------- or -------------------</h4>
             <h2>Sign up with your email address</h2>
 
