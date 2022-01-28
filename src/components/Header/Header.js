@@ -16,8 +16,8 @@ const Header = () => {
                 <li><a href="/offer">Offer</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/contact">Sign Up</a></li>
-                <li><a href="/contact">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/login">Login</a></li>
                 </ul>
             </nav>
             

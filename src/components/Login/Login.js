@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Login.css'
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import firebase from '../../firebase'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail  } from "firebase/auth";
 import { useHistory } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -29,6 +29,20 @@ const Login = () => {
                 alert(error)
             });
 
+    }
+
+
+    const handleResetPassword = () => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // Password reset email sent!
+                // ..
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
     }
 
 
@@ -61,6 +75,10 @@ const Login = () => {
                         width: '300px'
                     }}
                 />
+
+                <Button onClick={ handleResetPassword } variant="outlined" color="error">
+                    Reset Password
+                </Button>
 
 
                 <button type='submit' className="button">Login</button>

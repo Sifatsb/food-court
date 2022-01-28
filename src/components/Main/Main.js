@@ -30,7 +30,7 @@ const Main = () => {
         <motion.div initial={{opacity:0}} animate={{ opacity:1 }} transition={{ duration: 1.5 }} className="main-container">
             <div className="elements">
                 <motion.span initial={{ color:'magenta' }} animate={{ color:colorx }} className="food">{quote}</motion.span>
-                <Link to='/signup'><button className="button">Get Started</button></Link>
+                <Link to='/offer'><button className="button">Get Started</button></Link>
                 
                 {/* <button class="glow-on-hover" type="button">Get Started!</button> */}
 

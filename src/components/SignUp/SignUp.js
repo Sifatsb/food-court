@@ -2,7 +2,7 @@ import { TextField } from '@mui/material';
 import React, { useState } from 'react';
 import './SignUp.css';
 import firebase from './../../firebase';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendEmailVerification, } from "firebase/auth";
 // import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -10,29 +10,54 @@ import { motion } from 'framer-motion';
 
 const googleProvider = new GoogleAuthProvider();
 
+
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
     const auth = getAuth(firebase);
+    const [error, setError] = useState('');
 
     const btnSignUp = (e) => {
         e.preventDefault();
+
+        if (password.length < 6) {
+            setError('Password must be at least 6 characters long');
+            return;
+        }
+
+        // if (!/(?=.*[A-Z].*[A-Z]/.test(password)) {
+        //     setError('Password must contain at least two uppercase letters');
+        //     return;
+        // }
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
                 // alert('done')
                 // return <Redirect to="/profile/" />;
+                verifyEmail()
+
                 history.push("/profile");
+
             })
             .catch((err) => {
                 alert(err)
             })
+
     }
 
-    
+    const verifyEmail = (e) => {
+        sendEmailVerification(auth.currentUser)
+            .then(() => {
+                // Email verification sent!
+                // ...
+            });
+    }
+
+
+
     const handleGoogleSignIn = () => {
-        const auth = getAuth();
+        // const auth = getAuth();
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 // const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -86,7 +111,7 @@ const SignUp = () => {
                         width: '300px'
                     }}
                 />
-
+                <div style={{ color: "red" }}>{error}</div>
                 <button type='submit' className="button">Sign up</button>
             </form>
 
